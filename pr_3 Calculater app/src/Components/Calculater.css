@@ -1,0 +1,146 @@
+:root {
+  --bg-color: linear-gradient(135deg, #6e005f, #b7007d);
+  --card-bg: #7b3e57;
+  --input-bg: transparent;
+  --button-bg: #f8f0e3;
+  --button-op-bg: #4a2c35;
+  --hover-bg: #fff6eb;
+  --text-color: #000000;
+  --text-light: #ffffff;
+  --border-radius: 20px;
+  --gap: 16px;
+  --shadow-light: rgba(255, 255, 255, 0.3);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: var(--button-op-bg);
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.calculator {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 28px;
+  box-shadow: 0px 8px 20px var(--shadow-dark);
+  width: 380px;
+  animation: fadeIn 0.5s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calculator input {
+  width: 100%;
+  height: 60px;
+  font-size: 2rem;
+  text-align: right;
+  padding: 10px 16px;
+  border-radius: var(--border-radius);
+  border: none;
+  background: var(--input-bg);
+  color: var(--text-light);
+  margin-bottom: var(--gap);
+  outline: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+
+.clear-button {
+  grid-column: span 4;
+  background-color: var(--button-op-bg);
+  color: var(--text-light);
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 20px;
+  margin-bottom: var(--gap);
+  padding: 16px 0;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.button-grid button {
+  padding: 16px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 3px 3px 10px var(--shadow-dark),
+              -2px -2px 4px var(--shadow-light);
+}
+
+.button-grid button:not(.clear-button):not(.eq-btn):not(:nth-child(4n)) {
+  background-color: var(--button-bg);
+  color: var(--text-color);
+}
+
+.button-grid button:nth-child(4n),
+.button-grid button:contains('+'),
+.button-grid button:contains('-'),
+.button-grid button:contains('*'),
+.button-grid button:contains('/') {
+  background-color: var(--button-op-bg);
+  color: var(--text-light);
+}
+
+.eq-btn {
+  background-color: #00b894;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 18px;
+  box-shadow: 0 5px 12px rgba(0, 184, 148, 0.5);
+  transition: 0.25s ease;
+}
+
+.button-grid button:hover,
+.clear-button:hover,
+.eq-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
