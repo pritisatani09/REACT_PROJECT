@@ -1,0 +1,167 @@
+/* === Form Container Card === */
+.patient-form-card {
+  max-width: 600px;
+  margin: auto;
+  border-radius: 20px !important;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.521);
+}
+
+/* === Header with Hospital Color === */
+.patient-form-header {
+  background-color: #007d79; 
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 28px;
+  font-weight: 700;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.413);
+}
+
+/* === Form Labels === */
+.form-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-label::after {
+  content: "*";
+  color: #e74c3c;
+  margin-left: 4px;
+  font-size: 14px;
+}
+
+/* === Input Fields === */
+.form-control,
+.form-select {
+  border-radius: 15px;
+  background-color: #f0f4f5;
+  border: 1px solid #cfd8dc;
+  padding: 12px 15px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #00b5ad;
+  box-shadow: 0 0 0 0.15rem rgba(0, 181, 173, 0.2);
+}
+
+/* === Radio Buttons === */
+.form-check-input[type="radio"] {
+  border-radius: 50%;
+  border: 1px solid #b0bec5;
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 8px;
+}
+
+/* === Buttons === */
+.btn-primary {
+  background-color: #00b5ad;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 27px;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #008c86;
+}
+
+.btn-warning {
+  background-color: #f6c343;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 10px;
+}
+
+.btn-warning:hover {
+  background-color: #e0aa2f;
+}
+
+.btn-danger {
+  background-color: #f05a5c;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 10px;
+}
+
+.btn-danger:hover {
+  background-color: #d63f3f;
+}
+
+/* === Patient Card Hover === */
+.patient-card {
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #dfe6e9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  padding-top: 15px;
+}
+
+.patient-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg, #00b5ad, #007d79);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.patient-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  border-color:#00b5ad;
+}
+
+/* Optional badge styles */
+.patient-card .badge {
+  font-size: 0.75rem;
+  padding: 7px 10px;
+  background-color: #00b5ad;
+  color: #fff;
+  border-radius: 10px;
+}
+
+/* Optional subtitle styling */
+.patient-card .card-subtitle {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 12px;
+}
+
+/* Improve spacing */
+.patient-card .card-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* === Patient Records Title === */
+.patient-records-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #f0f4f8;
+  background-color: #008c86;
+  padding: 18px 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
