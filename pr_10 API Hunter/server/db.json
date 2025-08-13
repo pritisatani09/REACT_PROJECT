@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": "305869",
+      "title": "Protein Chef Baked Bikaneri Bhujia Sev ",
+      "desc": "Healthy Snacks Namkeen",
+      "price": "90",
+      "category": "Snacks & Munchies",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/bf7cbdb0-862b-4300-badd-44c5fb85b7df.png"
+    },
+    {
+      "id": "504672",
+      "title": "Nescafe Cafe Style Cold Coffee, Iced Latte",
+      "desc": "cold coffee",
+      "price": "85",
+      "category": "Cold Drinks & Juices",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/adde6e4d-228e-4274-99ff-6a3b5596e543.png"
+    },
+    {
+      "id": "426560",
+      "title": "Pringles Original Potato Chips - Pack of 2",
+      "desc": "crunchy chips",
+      "price": "213",
+      "category": "Snacks & Munchies",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/815e8dd5-37e9-4dc2-b3f7-ded08e12a7ab.png"
+    },
+    {
+      "id": "327783",
+      "title": "Sunfeast Fantastik Mini Treats (Homepack) Candy ",
+      "desc": "Yummy candies",
+      "price": "55",
+      "category": "Candies & Gums",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/0b569afe-a044-4391-8e51-da7e79901916.png"
+    },
+    {
+      "id": "249795",
+      "title": "Thums Up Soft Drink (750 ml)",
+      "desc": "soft drinks",
+      "price": "45",
+      "category": "Cold Drinks & Juices",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/629b2189-65f7-49cb-bb5d-8bfdf0befea7.png"
+    },
+    {
+      "id": "819611",
+      "title": "Lay's India's Magic Masala Potato Chips",
+      "desc": "masala chips",
+      "price": "30",
+      "category": "Snacks & Munchies",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/7806dadc-a3c9-4cec-869f-90879c1f345c.png"
+    },
+    {
+      "id": "764429",
+      "title": "Cadbury Dairy Milk Silk Oreo Filled Bar",
+      "desc": "chololates",
+      "price": "110",
+      "category": "Candies & Gums",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/e930270b-df49-4547-98fb-7a1e7d9eb35a.png"
+    },
+    {
+      "id": "699900",
+      "title": "Amul Salted Butter",
+      "desc": "yummy butter",
+      "price": "62",
+      "category": "Dairy & Bread",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/613787ac-f983-4cfb-b534-e219c8d47b39.png"
+    },
+    {
+      "id": "527186",
+      "title": "London Dairy Chocolate Brownie Delight Ice Cream Tub",
+      "desc": "Ice cream",
+      "price": "475",
+      "category": "Dairy & Bread",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/611ee738-9f6f-430d-ad9e-f7085fab5613.png"
+    },
+    {
+      "id": "940945",
+      "title": "Pintola Dark Chocolate Crunchy Peanut Butter",
+      "desc": "Chocolate butter",
+      "price": "185",
+      "category": "Dairy & Bread",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/69fb9cb1-27b9-4797-a5a5-b8d498e803af.png"
+    }
+  ]
+}
