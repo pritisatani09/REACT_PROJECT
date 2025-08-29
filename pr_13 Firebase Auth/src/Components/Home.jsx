@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProductAsync, getAllProductAsync } from "../Services/Actions/productAction";
+import { deleteRoomAsync, getAllRoomsAsync } from "../Services/Actions/roomAction";
 import { Button, Container, Row, Col, Spinner, Form, InputGroup } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { IoSearch, IoCloseCircle } from "react-icons/io5";
@@ -8,49 +8,44 @@ import "./Home.css";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { products, isLoading } = useSelector((state) => state.productReducer);
-  const { user } = useSelector((state) => state.userReducer); // 🔐 auth state
+  const { rooms, isLoading } = useSelector((state) => state.roomReducer);
+  const { user } = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
 
   const [search, setSearch] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [sortOption, setSortOption] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 8;
+  const roomsPerPage = 3; // 👈 ek page par 3 card
 
   useEffect(() => {
-    dispatch(getAllProductAsync());
+    dispatch(getAllRoomsAsync());
   }, [dispatch]);
 
   useEffect(() => {
-    setFilteredData(products);
-  }, [products]);
+    setFilteredData(rooms);
+  }, [rooms]);
 
   const handleEdit = (id) => {
-    if (!user) {
-      navigate("/signIn"); // 🔐 login required
-      return;
-    }
-    navigate(`/edit-product/${id}`);
+    if (!user) return navigate("/signIn");
+    navigate(`/edit-room/${id}`);
   };
 
   const handleDelete = (id) => {
-    if (!user) {
-      navigate("/signIn"); // 🔐 login required
-      return;
-    }
-    dispatch(deleteProductAsync(id));
+    if (!user) return navigate("/signIn");
+    dispatch(deleteRoomAsync(id));
   };
 
-  const handleView = (id) => navigate(`/product/${id}`);
+  const handleView = (id) => navigate(`/room/${id}`);
 
+  // 🔍 Search
   const handleSearch = () => {
     const q = search.trim().toLowerCase();
-    let filtered = products.filter((prod) =>
-      prod.title.toLowerCase().includes(q) ||
-      prod.desc?.toLowerCase().includes(q) ||
-      String(prod.price).includes(q) ||
-      prod.category?.toLowerCase().includes(q)
+    let filtered = rooms.filter((room) =>
+      room.title.toLowerCase().includes(q) ||
+      room.desc?.toLowerCase().includes(q) ||
+      String(room.price).includes(q) ||
+      room.category?.toLowerCase().includes(q)
     );
     setFilteredData(filtered);
     setCurrentPage(1);
@@ -58,28 +53,28 @@ const Home = () => {
 
   const handleClear = () => {
     setSearch("");
-    setFilteredData(products);
+    setFilteredData(rooms);
     setCurrentPage(1);
   };
 
   const handleClearSort = () => setSortOption("");
 
-  // Sort
-  let sortedProducts = [...filteredData];
+  // 🔽 Sort
+  let sortedRooms = [...filteredData];
   if (sortOption === "priceLowHigh") {
-    sortedProducts.sort((a, b) => a.price - b.price);
+    sortedRooms.sort((a, b) => a.price - b.price);
   } else if (sortOption === "priceHighLow") {
-    sortedProducts.sort((a, b) => b.price - a.price);
+    sortedRooms.sort((a, b) => b.price - a.price);
   } else if (sortOption === "nameAZ") {
-    sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+    sortedRooms.sort((a, b) => a.title.localeCompare(b.title));
   } else if (sortOption === "nameZA") {
-    sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
+    sortedRooms.sort((a, b) => b.title.localeCompare(a.title));
   }
 
-  // Pagination
-  const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const currentProducts = sortedProducts.slice(startIndex, startIndex + productsPerPage);
+  // 📑 Pagination
+  const totalPages = Math.ceil(sortedRooms.length / roomsPerPage);
+  const startIndex = (currentPage - 1) * roomsPerPage;
+  const currentRooms = sortedRooms.slice(startIndex, startIndex + roomsPerPage);
 
   const changePage = (pageNum) => setCurrentPage(pageNum);
 
@@ -87,9 +82,8 @@ const Home = () => {
     <Container className="my-4 page-wrapper">
       {/* Header */}
       <div className="list-header">
-        <h2 className="page-title text-center">PRODUCT LISTING</h2>
+        <h2 className="page-title text-center">ROOM LISTING</h2>
 
-        {/* Row: Search | Sort */}
         <Row className="w-100 g-3 align-items-stretch">
           {/* SEARCH */}
           <Col xs={12} md={6}>
@@ -101,12 +95,7 @@ const Home = () => {
               }}
             >
               <InputGroup className="ps-search-group">
-                <button
-                  type="button"
-                  className="ps-search-icon"
-                  aria-label="Search"
-                  onClick={handleSearch}
-                >
+                <button type="button" className="ps-search-icon" onClick={handleSearch}>
                   <IoSearch className="fs-5" />
                 </button>
                 <Form.Control
@@ -116,12 +105,7 @@ const Home = () => {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
-                <button
-                  type="button"
-                  className="ps-clear-icon"
-                  aria-label="Clear search"
-                  onClick={handleClear}
-                >
+                <button type="button" className="ps-clear-icon" onClick={handleClear}>
                   <IoCloseCircle className="fs-5" />
                 </button>
               </InputGroup>
@@ -150,31 +134,31 @@ const Home = () => {
         </Row>
       </div>
 
-      {/* Product Listing */}
+      {/* Room Listing */}
       {isLoading ? (
         <div className="text-center"><Spinner animation="border" /></div>
       ) : (
         <>
           <Row className="g-4">
-            {currentProducts.length > 0 ? (
-              currentProducts.map((prod) => (
-                <Col md={3} sm={6} xs={12} key={prod.id}>
+            {currentRooms.length > 0 ? (
+              currentRooms.map((room) => (
+                <Col md={4} sm={6} xs={12} key={room.id}>
                   <div className="product-card">
-                    <img src={prod.image} alt={prod.title} className="product-img" />
-                    <h5 className="product-title">{prod.title}</h5>
-                    <div className="product-desc">{prod.desc}</div>
-                    <div className="product-meta">{prod.category}</div>
-                    <div className="product-price">₹{prod.price}</div>
+                    <img src={room.image} alt={room.title} className="product-img" />
+                    <h5 className="product-title">{room.title}</h5>
+                    <div className="product-desc">{room.desc}</div>
+                    <div className="product-meta">{room.category}</div>
+                    <div className="product-price">₹{room.price}</div>
                     <div className="edit-delete-btns">
-                      <Button size="sm" className="view-btn" onClick={() => handleView(prod.id)}>View</Button>
-                      <Button size="sm" className="edit-btn" onClick={() => handleEdit(prod.id)}>Edit</Button>
-                      <Button size="sm" className="delete-btn" onClick={() => handleDelete(prod.id)}>Delete</Button>
+                      <Button size="sm" className="view-btn" onClick={() => handleView(room.id)}>View</Button>
+                      <Button size="sm" className="edit-btn" onClick={() => handleEdit(room.id)}>Edit</Button>
+                      <Button size="sm" className="delete-btn" onClick={() => handleDelete(room.id)}>Delete</Button>
                     </div>
                   </div>
                 </Col>
               ))
             ) : (
-              <p className="text-center text-muted">No products found.</p>
+              <p className="text-center text-muted">No rooms found.</p>
             )}
           </Row>
 

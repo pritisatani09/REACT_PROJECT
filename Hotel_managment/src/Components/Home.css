@@ -1,0 +1,100 @@
+/* Header.css */
+
+/* Sticky top with smooth shadow on scroll */
+.custom-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  background: linear-gradient(90deg, #fdf6e3, #f9f3e7);
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Shrink effect on scroll (optional JS) */
+.custom-navbar.shrink {
+  padding: 0.6rem 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* Logo style */
+.custom-navbar .navbar-brand img {
+  height: 45px;
+  transition: transform 0.3s ease;
+}
+.custom-navbar .navbar-brand img:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation links */
+.custom-navbar .nav-link {
+  color: #b0892b;
+  font-weight: 500;
+  margin: 0 1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #8c6c28;
+}
+
+/* Highlighted Reservation Badge */
+.custom-navbar .badge-bookings {
+  font-size: 0.7rem;
+  position: absolute;
+  top: -8px;
+  right: -16px;
+  background-color: #8c6c28;
+  color: white;
+  font-weight: 600;
+  padding: 3px 6px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.custom-navbar .badge-bookings:hover {
+  transform: scale(1.2);
+}
+
+/* Dropdown menu style */
+.custom-navbar .dropdown-menu {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.custom-navbar .dropdown-item {
+  transition: all 0.2s;
+  color: #333;
+}
+
+.custom-navbar .dropdown-item:hover {
+  background-color: #f3e5d3;
+  color: #8c6c28;
+  font-weight: 500;
+}
+
+/* Buttons in nav (Add Room / Login) */
+.custom-navbar .nav-link.btn-link {
+  border: 1px solid #b0892b;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  transition: all 0.3s;
+}
+
+.custom-navbar .nav-link.btn-link:hover {
+  background-color: #b0892b;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Responsive tweak for mobile toggle */
+.custom-navbar .navbar-toggler {
+  border-color: #b0892b;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(176,137,43, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
